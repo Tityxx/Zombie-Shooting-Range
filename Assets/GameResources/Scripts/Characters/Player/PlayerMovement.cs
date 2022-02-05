@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private float jumpHeight;
     [SerializeField]
-    private float gravity = -9.81f;
+    private float weight = 2;
     [SerializeField]
     private Transform groundCheck;
     [SerializeField]
@@ -29,6 +29,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 velocityY;
 
     private bool isGround;
+
+    private const float GRAVITY = -9.81f;
 
     private void Awake()
     {
@@ -60,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
         Vector3 velocity = transform.right * moveInput.x + transform.forward * moveInput.y;
         controller.Move(velocity * movementSpeed * Time.fixedDeltaTime);
 
-        velocityY.y += gravity * Time.fixedDeltaTime;
+        velocityY.y += GRAVITY * weight * Time.fixedDeltaTime;
         controller.Move(velocityY * Time.fixedDeltaTime);
     }
 
@@ -68,7 +70,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isGround)
         {
-            velocityY.y = Mathf.Sqrt(jumpHeight * -2 * gravity);
+            velocityY.y = Mathf.Sqrt(jumpHeight * -2 * GRAVITY * weight);
         }
     }
 

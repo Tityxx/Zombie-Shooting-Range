@@ -9,6 +9,7 @@ public class Enemy : AbstractHealth
 {
     protected override void OnHealthChange(int value)
     {
+        // TODO: Сделать через обжект пул
         if (value == 0)
             Destroy(gameObject);
     }

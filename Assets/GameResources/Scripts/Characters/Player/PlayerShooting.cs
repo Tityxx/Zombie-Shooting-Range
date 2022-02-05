@@ -5,20 +5,15 @@ using UnityEngine;
 
 /// <summary>
 /// Стрельба игрока
+/// TODO: Разделить логику стрельбы, дамаг и вью
 /// </summary>
 public class PlayerShooting : MonoBehaviour
 {
     [SerializeField]
     private int damage;
-    [SerializeField]
-    private Transform shootingPos;
-    [SerializeField]
-    private GameObject projectile;
 
     private PlayerInput input;
     private Transform shootingPoint;
-
-    private bool isShooting;
 
     private void Awake()
     {

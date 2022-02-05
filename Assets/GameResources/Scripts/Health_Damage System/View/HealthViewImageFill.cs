@@ -9,7 +9,6 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Image))]
 public class HealthViewImageFill : MonoBehaviour
 {
-    [SerializeField]
     private AbstractHealth health;
 
     private Image image;
@@ -17,6 +16,7 @@ public class HealthViewImageFill : MonoBehaviour
     private void Awake()
     {
         image = GetComponent<Image>();
+        health = GetComponentInParent<AbstractHealth>();
     }
 
     private void OnEnable()
