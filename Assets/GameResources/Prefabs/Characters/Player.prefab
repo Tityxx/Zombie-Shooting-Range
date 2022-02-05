@@ -228,7 +228,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movementSpeed: 8
   jumpHeight: 2
-  gravity: -19.62
+  weight: 2
   groundCheck: {fileID: 1026100432667667596}
   radius: 0.5
   groundMask:
@@ -870,8 +870,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 5
-  shootingPos: {fileID: 2479491995072865987}
-  projectile: {fileID: 2141355751869347001, guid: 7be2a309b2538554b9283aabf956dfcd, type: 3}
 --- !u!1 &1026100433719811650
 GameObject:
   m_ObjectHideFlags: 0
