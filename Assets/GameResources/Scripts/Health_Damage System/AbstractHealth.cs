@@ -33,11 +33,11 @@ public abstract class AbstractHealth : MonoBehaviour
 
             health = Mathf.Clamp(value, 0, maxHealth);
             onHealthChange(health);
-            OnHealthChange(health);
             if (health == 0)
             {
                 onHealthIsOver();
             }
+            OnHealthChange(health);
         }
     }
 
@@ -56,5 +56,9 @@ public abstract class AbstractHealth : MonoBehaviour
         health = maxHealth;
     }
 
+    /// <summary>
+    /// Вызвается, когда закончилось хп
+    /// </summary>
+    /// <param name="value"></param>
     protected abstract void OnHealthChange(int value);
 }
