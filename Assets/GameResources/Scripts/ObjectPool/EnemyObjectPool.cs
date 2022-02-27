@@ -1,9 +1,9 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Пул врагов
+/// РџСѓР» РІСЂР°РіРѕРІ
 /// </summary>
 public class EnemyObjectPool : AbstractObjectPool<EnemyHealth>
 {

@@ -1,14 +1,14 @@
-using System.Collections;
+п»їusing System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Расширения для разных классов
+/// Р Р°СЃС€РёСЂРµРЅРёСЏ РґР»СЏ СЂР°Р·РЅС‹С… РєР»Р°СЃСЃРѕРІ
 /// </summary>
 public static class Extensions
 {
     /// <summary>
-    /// Находится ли число между двумя другими
+    /// РќР°С…РѕРґРёС‚СЃСЏ Р»Рё С‡РёСЃР»Рѕ РјРµР¶РґСѓ РґРІСѓРјСЏ РґСЂСѓРіРёРјРё
     /// </summary>
     /// <typeparam name="T"></typeparam>
     /// <param name="item"></param>
