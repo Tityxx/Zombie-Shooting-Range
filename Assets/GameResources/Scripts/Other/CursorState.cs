@@ -4,34 +4,28 @@ using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
-/// Переключает состояние курсора по нажатию на Esc
+/// Переключает состояние курсора при открытии/закрытии окон
 /// </summary>
 public class CursorState : MonoBehaviour
 {
-    private PlayerInput input;
-
-    private bool isVisible = true;
-
-    private void Awake()
-    {
-        input = new PlayerInput();
-    }
+    [SerializeField]
+    private bool visibleOnEnable = true;
 
     private void OnEnable()
     {
-        input.Enable();
-        input.Input.CursorState.started += ctx => ChangeState();
+        ChangeState(visibleOnEnable);
     }
 
-    private void OnDisable()
+    private void ChangeState(bool isVisible)
     {
-        input.Disable();
-        input.Input.CameraView.started -= ctx => ChangeState();
+        Cursor.visible = isVisible;
+        Cursor.lockState = isVisible ? CursorLockMode.None : CursorLockMode.Locked;
     }
-
-    private void ChangeState()
+    private void OnApplicationFocus(bool hasFocus)
     {
-        Cursor.visible = !Cursor.visible;
-        Cursor.lockState = Cursor.visible ? CursorLockMode.None : CursorLockMode.Locked;
+        if (hasFocus)
+        {
+            ChangeState(visibleOnEnable);
+        }
     }
 }

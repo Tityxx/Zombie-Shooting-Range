@@ -73,7 +73,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": false
                 },
                 {
-                    ""name"": ""CursorState"",
+                    ""name"": ""Esc"",
                     ""type"": ""Button"",
                     ""id"": ""ddb16b41-ada6-4586-9809-9a7f8d93a397"",
                     ""expectedControlType"": ""Button"",
@@ -288,7 +288,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""CursorState"",
+                    ""action"": ""Esc"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -304,7 +304,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Input_Reload = m_Input.FindAction("Reload", throwIfNotFound: true);
         m_Input_Jump = m_Input.FindAction("Jump", throwIfNotFound: true);
         m_Input_CameraView = m_Input.FindAction("CameraView", throwIfNotFound: true);
-        m_Input_CursorState = m_Input.FindAction("CursorState", throwIfNotFound: true);
+        m_Input_Esc = m_Input.FindAction("Esc", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -369,7 +369,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Input_Reload;
     private readonly InputAction m_Input_Jump;
     private readonly InputAction m_Input_CameraView;
-    private readonly InputAction m_Input_CursorState;
+    private readonly InputAction m_Input_Esc;
     public struct InputActions
     {
         private @PlayerInput m_Wrapper;
@@ -379,7 +379,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Reload => m_Wrapper.m_Input_Reload;
         public InputAction @Jump => m_Wrapper.m_Input_Jump;
         public InputAction @CameraView => m_Wrapper.m_Input_CameraView;
-        public InputAction @CursorState => m_Wrapper.m_Input_CursorState;
+        public InputAction @Esc => m_Wrapper.m_Input_Esc;
         public InputActionMap Get() { return m_Wrapper.m_Input; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -404,9 +404,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @CameraView.started -= m_Wrapper.m_InputActionsCallbackInterface.OnCameraView;
                 @CameraView.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnCameraView;
                 @CameraView.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnCameraView;
-                @CursorState.started -= m_Wrapper.m_InputActionsCallbackInterface.OnCursorState;
-                @CursorState.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnCursorState;
-                @CursorState.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnCursorState;
+                @Esc.started -= m_Wrapper.m_InputActionsCallbackInterface.OnEsc;
+                @Esc.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnEsc;
+                @Esc.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnEsc;
             }
             m_Wrapper.m_InputActionsCallbackInterface = instance;
             if (instance != null)
@@ -426,9 +426,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @CameraView.started += instance.OnCameraView;
                 @CameraView.performed += instance.OnCameraView;
                 @CameraView.canceled += instance.OnCameraView;
-                @CursorState.started += instance.OnCursorState;
-                @CursorState.performed += instance.OnCursorState;
-                @CursorState.canceled += instance.OnCursorState;
+                @Esc.started += instance.OnEsc;
+                @Esc.performed += instance.OnEsc;
+                @Esc.canceled += instance.OnEsc;
             }
         }
     }
@@ -440,6 +440,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnReload(InputAction.CallbackContext context);
         void OnJump(InputAction.CallbackContext context);
         void OnCameraView(InputAction.CallbackContext context);
-        void OnCursorState(InputAction.CallbackContext context);
+        void OnEsc(InputAction.CallbackContext context);
     }
 }

@@ -18,7 +18,15 @@ public abstract class AbstractHealth : MonoBehaviour
     /// </summary>
     public event Action onHealthIsOver = delegate { };
 
+    /// <summary>
+    /// Максимальное хп
+    /// </summary>
     public int MaxHealth => maxHealth == -1 ? health : maxHealth;
+
+    /// <summary>
+    /// Закончилось ли хп у объекта
+    /// </summary>
+    public bool IsDead => isDead;
 
     public int Health 
     {
@@ -28,16 +36,17 @@ public abstract class AbstractHealth : MonoBehaviour
         }
         set
         {
-            if (health == value)
+            if (health == value || isDead)
                 return;
 
             health = Mathf.Clamp(value, 0, maxHealth);
+            OnHealthChange(health);
             onHealthChange(health);
             if (health == 0)
             {
+                isDead = true;
                 onHealthIsOver();
             }
-            OnHealthChange(health);
         }
     }
 
@@ -45,19 +54,21 @@ public abstract class AbstractHealth : MonoBehaviour
     protected int health;
 
     protected int maxHealth = -1;
+    protected bool isDead = false;
 
-    protected void Awake()
+    protected virtual void Awake()
     {
         maxHealth = health;
     }
 
-    protected void OnEnable()
+    protected virtual void OnEnable()
     {
-        health = maxHealth;
+        Health = maxHealth;
+        isDead = false;
     }
 
     /// <summary>
-    /// Вызвается, когда закончилось хп
+    /// Вызвается при изменении хп
     /// </summary>
     /// <param name="value"></param>
     protected abstract void OnHealthChange(int value);

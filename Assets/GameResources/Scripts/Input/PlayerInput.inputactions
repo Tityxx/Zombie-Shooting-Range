@@ -11,7 +11,8 @@
                     "id": "45138a4d-6415-4ca8-9b63-0e2e97147df8",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Shoot",
@@ -19,7 +20,8 @@
                     "id": "0f0f4e11-1818-496f-ae9e-5ebc9ed263e2",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Reload",
@@ -27,7 +29,8 @@
                     "id": "2a865e61-6197-414a-ab75-16f78aab5805",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "Jump",
@@ -35,7 +38,8 @@
                     "id": "c0dde361-bf60-44dd-9575-d4db8f153382",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
                     "name": "CameraView",
@@ -43,15 +47,17 @@
                     "id": "7a4fcec7-d2dc-47f8-bf03-ad0266e52f7b",
                     "expectedControlType": "Vector2",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 },
                 {
-                    "name": "CursorState",
+                    "name": "Esc",
                     "type": "Button",
                     "id": "ddb16b41-ada6-4586-9809-9a7f8d93a397",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": ""
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -260,7 +266,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "CursorState",
+                    "action": "Esc",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
