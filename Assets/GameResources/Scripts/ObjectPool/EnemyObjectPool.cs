@@ -16,7 +16,6 @@ public class EnemyObjectPool : AbstractObjectPool<EnemyHealth>
 
     protected override void OnReturnedToPool(EnemyHealth obj)
     {
-        obj.Health = obj.MaxHealth;
         obj.gameObject.SetActive(false);
     }
 

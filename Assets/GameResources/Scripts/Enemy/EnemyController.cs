@@ -45,10 +45,6 @@ public class EnemyController : MonoBehaviour
     private void OnEnable()
     {
         health.onHealthIsOver += Die;
-
-        agent.enabled = true;
-        SetPath();
-        Move();
     }
 
     private void OnDisable()
@@ -137,8 +133,12 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    private void SetPath()
+    /// <summary>
+    /// Установка пути
+    /// </summary>
+    public void SetPath()
     {
+        agent.enabled = true;
         int rand = Random.Range(0, walls.Points.Count - 1);
         targetPosition = walls.Points[rand];
         agent.SetDestination(targetPosition.position);

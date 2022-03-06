@@ -8,28 +8,54 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
+    private EnemyObjectPool pool;
+
+    [Header("Задержка между спавном волн")]
+    [SerializeField]
     private float delay = 1;
+
+    [Space]
+    [Header("Сколько врагов спавнить одновременно на 1 точке таймера")]
+    [SerializeField]
+    private int timerCount = 1;
+    [Header("Позиции для спавна по таймеру")]
     [SerializeField]
     private Transform[] positions;
 
-    private EnemyObjectPool pool;
+    [Space]
+    [Header("Сколько врагов спавнить одновременно на 1 точке старта")]
+    [SerializeField]
+    private int startCount = 1;
+    [Header("Позиции для спавна на старте")]
+    [SerializeField]
+    private Transform[] positionsOnStart;
 
     private void Start()
     {
-        pool = FindObjectOfType<EnemyObjectPool>();
-        StartCoroutine(Spawn());
+        SpawnWave(startCount, positionsOnStart);
+        StartCoroutine(SpawnWaveWithTimer());
     }
 
-    private IEnumerator Spawn()
+    private IEnumerator SpawnWaveWithTimer()
     {
         while (enabled)
         {
+            SpawnWave(timerCount, positions);
+            
             yield return new WaitForSeconds(delay);
+        }
+    }
 
-            EnemyHealth enemy = pool.Get();
-            int rand = Random.Range(0, positions.Length);
-            enemy.transform.position = positions[rand].position;
-            enemy.transform.rotation = positions[rand].rotation;
+    private void SpawnWave(int count, Transform[] positions)
+    {
+        for (int j = 0; j < count; j++)
+        {
+            for (int i = 0; i < positions.Length; i++)
+            {
+                EnemyHealth enemy = pool.Get();
+                enemy.transform.position = positions[i].position;
+                enemy.GetComponent<EnemyController>().SetPath();
+            }
         }
     }
 }

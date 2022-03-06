@@ -8,10 +8,6 @@ using UnityEngine.Pool;
 /// </summary>
 public abstract class AbstractObjectPool<T> : MonoBehaviour where T: MonoBehaviour
 {
-    public string Id => id;
-
-    [SerializeField]
-    private string id = string.Empty;
     [SerializeField]
     private int InitCount = 10;
     [SerializeField]
