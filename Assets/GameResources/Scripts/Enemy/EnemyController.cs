@@ -32,6 +32,9 @@ public class EnemyController : MonoBehaviour
 
     private bool isFinalState = false;
 
+    private const float MIN_SPEED = 0.8f;
+    private const float MAX_SPEED = 1.3f;
+
     private void Awake()
     {
         anim = GetComponent<Animator>();
@@ -44,6 +47,8 @@ public class EnemyController : MonoBehaviour
 
     private void OnEnable()
     {
+        SetRandomSpeed();
+
         health.onHealthIsOver += Die;
     }
 
@@ -142,5 +147,10 @@ public class EnemyController : MonoBehaviour
         int rand = Random.Range(0, walls.Points.Count - 1);
         targetPosition = walls.Points[rand];
         agent.SetDestination(targetPosition.position);
+    }
+
+    private void SetRandomSpeed()
+    {
+        anim.speed = Random.Range(MIN_SPEED, MAX_SPEED);
     }
 }
