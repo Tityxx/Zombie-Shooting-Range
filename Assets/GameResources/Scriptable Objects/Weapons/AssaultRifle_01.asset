@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102c4d58ba3c0ef41b41ec3d5886cf01, type: 3}
+  m_Name: AssaultRifle_01
+  m_EditorClassIdentifier: 
+  id: AssaultRifle_01
+  cost: 0
+  icon: {fileID: 0}
+  prefab: {fileID: 6981775009440251812, guid: 6fe7f9b98aa91514da04188dec4d67d4, type: 3}
+  isAutomaticWeapon: 1
+  maxBullets: 30
+  damage: 15
+  delayBetweenShots: 0.1
