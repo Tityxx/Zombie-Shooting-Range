@@ -3356,6 +3356,7 @@ GameObject:
   - component: {fileID: 1190581836016599399}
   - component: {fileID: 1941935885489755485}
   - component: {fileID: -4001466298853532214}
+  - component: {fileID: -662511155329861137}
   m_Layer: 0
   m_Name: ZombieSimple
   m_TagString: Untagged
@@ -3577,6 +3578,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 10
   attacksCount: 4
+--- !u!114 &-662511155329861137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418193975600942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0e07d8238e72e9a4fb7688f3e557c5de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  data: {fileID: 11400000, guid: bc32a9cffd41e844da6a03f6eb91eca1, type: 2}
+  playingTime: 1
 --- !u!1 &1423411692011380
 GameObject:
   m_ObjectHideFlags: 0

@@ -68,6 +68,10 @@ public abstract class AbstractWeapon : MonoBehaviour
             {
                 health.Health -= data.Damage;
             }
+            if (hit.transform.TryGetComponent(out ImpactHandler impact))
+            {
+                impact.Impact(hit.point);
+            }
         }
         onBulletsCountChange();
     }
