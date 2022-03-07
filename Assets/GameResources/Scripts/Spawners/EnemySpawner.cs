@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using ToolsAndMechanics.ObjectPool;
 using UnityEngine;
 
 /// <summary>
@@ -7,12 +8,11 @@ using UnityEngine;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
-    [SerializeField]
-    private EnemyObjectPool pool;
-
     [Header("Задержка между спавном волн")]
     [SerializeField]
     private float delay = 1;
+    [SerializeField]
+    private PoolableObjectData enemyData;
 
     [Space]
     [Header("Сколько врагов спавнить одновременно на 1 точке таймера")]
@@ -30,8 +30,11 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private Transform[] positionsOnStart;
 
+    private ObjectPoolController pool;
+
     private void Start()
     {
+        pool = FindObjectOfType<ObjectPoolController>();
         SpawnWave(startCount, positionsOnStart);
         StartCoroutine(SpawnWaveWithTimer());
     }
@@ -52,8 +55,7 @@ public class EnemySpawner : MonoBehaviour
         {
             for (int i = 0; i < positions.Length; i++)
             {
-                EnemyHealth enemy = pool.Get();
-                enemy.transform.position = positions[i].position;
+                GameObject enemy = pool.GetObject(enemyData, positions[i].position);
                 enemy.GetComponent<EnemyController>().SetPath();
             }
         }

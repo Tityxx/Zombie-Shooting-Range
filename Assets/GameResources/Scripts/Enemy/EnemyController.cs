@@ -47,6 +47,7 @@ public class EnemyController : MonoBehaviour
 
     private void OnEnable()
     {
+        GetComponent<Collider>().enabled = true;
         SetRandomSpeed();
 
         health.onHealthIsOver += Die;
@@ -108,6 +109,7 @@ public class EnemyController : MonoBehaviour
 
     private void Die()
     {
+        GetComponent<Collider>().enabled = false;
         agent.enabled = false;
         anim.SetBool(MOVE_KEY, false);
         anim.SetTrigger(DEAD_KEY);
