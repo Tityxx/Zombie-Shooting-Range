@@ -25,15 +25,22 @@ public class BossSpawner : MonoBehaviour
         pool = FindObjectOfType<ObjectPoolController>();
 
         startTime = Time.time;
+        StartCoroutine(SpawnCoroutine());
     }
 
     private IEnumerator SpawnCoroutine()
     {
         while (enabled)
         {
-            yield return new WaitForSeconds(1);
+            yield return new WaitForSeconds(spawnDelayCurve.Evaluate(Time.time - startTime));
 
+            int count = (int)countCurve.Evaluate(Time.time - startTime);
 
+            for (int i = 0; i < count; i++)
+            {
+                int rand = Random.Range(0, spawnPoints.Length);
+                Spawn(spawnPoints[rand].position);
+            }
         }
     }
 

@@ -80,6 +80,15 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Explosion"",
+                    ""type"": ""Button"",
+                    ""id"": ""7218f5c2-a281-4f30-b0f2-bbf44e175202"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -291,6 +300,17 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                     ""action"": ""Esc"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""80c622b9-4468-4420-b54a-2baab12fb150"",
+                    ""path"": ""<Keyboard>/f"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Explosion"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -305,6 +325,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         m_Input_Jump = m_Input.FindAction("Jump", throwIfNotFound: true);
         m_Input_CameraView = m_Input.FindAction("CameraView", throwIfNotFound: true);
         m_Input_Esc = m_Input.FindAction("Esc", throwIfNotFound: true);
+        m_Input_Explosion = m_Input.FindAction("Explosion", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -370,6 +391,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
     private readonly InputAction m_Input_Jump;
     private readonly InputAction m_Input_CameraView;
     private readonly InputAction m_Input_Esc;
+    private readonly InputAction m_Input_Explosion;
     public struct InputActions
     {
         private @PlayerInput m_Wrapper;
@@ -380,6 +402,7 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         public InputAction @Jump => m_Wrapper.m_Input_Jump;
         public InputAction @CameraView => m_Wrapper.m_Input_CameraView;
         public InputAction @Esc => m_Wrapper.m_Input_Esc;
+        public InputAction @Explosion => m_Wrapper.m_Input_Explosion;
         public InputActionMap Get() { return m_Wrapper.m_Input; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -407,6 +430,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Esc.started -= m_Wrapper.m_InputActionsCallbackInterface.OnEsc;
                 @Esc.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnEsc;
                 @Esc.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnEsc;
+                @Explosion.started -= m_Wrapper.m_InputActionsCallbackInterface.OnExplosion;
+                @Explosion.performed -= m_Wrapper.m_InputActionsCallbackInterface.OnExplosion;
+                @Explosion.canceled -= m_Wrapper.m_InputActionsCallbackInterface.OnExplosion;
             }
             m_Wrapper.m_InputActionsCallbackInterface = instance;
             if (instance != null)
@@ -429,6 +455,9 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
                 @Esc.started += instance.OnEsc;
                 @Esc.performed += instance.OnEsc;
                 @Esc.canceled += instance.OnEsc;
+                @Explosion.started += instance.OnExplosion;
+                @Explosion.performed += instance.OnExplosion;
+                @Explosion.canceled += instance.OnExplosion;
             }
         }
     }
@@ -441,5 +470,6 @@ public partial class @PlayerInput : IInputActionCollection2, IDisposable
         void OnJump(InputAction.CallbackContext context);
         void OnCameraView(InputAction.CallbackContext context);
         void OnEsc(InputAction.CallbackContext context);
+        void OnExplosion(InputAction.CallbackContext context);
     }
 }
