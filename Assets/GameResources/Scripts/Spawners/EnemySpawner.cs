@@ -8,16 +8,16 @@ using UnityEngine;
 /// </summary>
 public class EnemySpawner : MonoBehaviour
 {
-    [Header("Задержка между спавном волн")]
-    [SerializeField]
-    private float delay = 1;
     [SerializeField]
     private PoolableObjectData enemyData;
 
     [Space]
-    [Header("Сколько врагов спавнить одновременно на 1 точке таймера")]
+    [Header("Кол-во врагов для спавна по таймеру")]
     [SerializeField]
-    private int timerCount = 1;
+    private AnimationCurve countCurve;
+    [Header("Задержка спавна по таймеру")]
+    [SerializeField]
+    private AnimationCurve spawnDelayCurve;
     [Header("Позиции для спавна по таймеру")]
     [SerializeField]
     private Transform[] positions;
@@ -31,10 +31,12 @@ public class EnemySpawner : MonoBehaviour
     private Transform[] positionsOnStart;
 
     private ObjectPoolController pool;
+    private float startTime;
 
     private void Start()
     {
         pool = FindObjectOfType<ObjectPoolController>();
+        startTime = Time.time;
         SpawnWave(startCount, positionsOnStart);
         StartCoroutine(SpawnWaveWithTimer());
     }
@@ -43,9 +45,9 @@ public class EnemySpawner : MonoBehaviour
     {
         while (enabled)
         {
-            SpawnWave(timerCount, positions);
+            SpawnWave((int)countCurve.Evaluate(Time.time - startTime), positions);
             
-            yield return new WaitForSeconds(delay);
+            yield return new WaitForSeconds(spawnDelayCurve.Evaluate(Time.time - startTime));
         }
     }
 

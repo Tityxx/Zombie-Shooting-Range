@@ -495,6 +495,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: AssaultRifle_01
       objectReference: {fileID: 0}
+    - target: {fileID: 2305379508215547910, guid: 6fe7f9b98aa91514da04188dec4d67d4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3099071823954530087, guid: 6fe7f9b98aa91514da04188dec4d67d4, type: 3}
       propertyPath: m_RootOrder
       value: 3
@@ -603,7 +607,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7460176336592084811, guid: efb4879c7ebab994bb2f2a823c62e532, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: efb4879c7ebab994bb2f2a823c62e532, type: 3}

@@ -63,7 +63,7 @@ ModelImporter:
       - time: 1
         functionName: SetRandomAttackAnim
         data: 
-        objectReferenceParameter: {fileID: 1418193975600942, guid: b358507cf0da65d4bba9bdca0c034319, type: 3}
+        objectReferenceParameter: {instanceID: 0}
         floatParameter: 0
         intParameter: 0
         messageOptions: 0
