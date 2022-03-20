@@ -16,6 +16,9 @@ public class WeaponData : ScriptableObject
     public int Damage => damage;
     public float DelayBetweenShots => delayBetweenShots;
 
+    /// <summary>
+    /// Приобретено ли оружие
+    /// </summary>
     public bool HaveWeapon
     {
         get
@@ -31,6 +34,9 @@ public class WeaponData : ScriptableObject
         }
     }
 
+    /// <summary>
+    /// Выбрано ли оружие
+    /// </summary>
     public bool IsChoosen
     {
         get

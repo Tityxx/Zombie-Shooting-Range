@@ -12,21 +12,36 @@ public class BulletsView : MonoBehaviour
     private AbstractWeapon weapon;
     private TMP_Text text;
 
-    private void Awake()
+    private bool isSubscribe = false;
+
+    private IEnumerator Start()
     {
-        weapon = FindObjectOfType<AbstractWeapon>();
+        yield return new WaitWhile(() => (weapon = FindObjectOfType<AbstractWeapon>()) == null);
+
         text = GetComponent<TMP_Text>();
+        Subscribe();
     }
 
     private void OnEnable()
     {
-        OnShoot();
-        weapon.onBulletsCountChange += OnShoot;
+        Subscribe();
+    }
+
+    private void Subscribe()
+    {
+        if (!isSubscribe && weapon != null)
+        {
+            OnShoot();
+            weapon.onBulletsCountChange += OnShoot;
+            isSubscribe = true;
+        }
     }
 
     private void OnDisable()
     {
-        weapon.onBulletsCountChange -= OnShoot;
+        isSubscribe = false;
+        if (weapon != null)
+            weapon.onBulletsCountChange -= OnShoot;
     }
 
     private void OnShoot()
