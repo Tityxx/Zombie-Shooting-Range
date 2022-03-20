@@ -14,6 +14,7 @@ public class LoadSceneButton : AbstractButton
 
     public override void OnButtonClick()
     {
+        LoadingView.StartLoading();
         SceneManager.LoadSceneAsync(sceneName);
     }
 }
