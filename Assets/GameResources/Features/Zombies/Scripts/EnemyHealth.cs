@@ -11,11 +11,15 @@ public class EnemyHealth : AbstractHealth
     [Header("Задержка перед возвращением в пул после смерти")]
     [SerializeField]
     private float delay = 5;
+    [Header("Награда за убийство")]
+    [SerializeField]
+    private int rewardCurrency = 5;
 
     protected override void OnHealthChange(int value)
     {
         if (!isDead && value <= 0)
         {
+            Currency.Value += rewardCurrency;
             Invoke(nameof(ReturnToPool), delay);
         }
     }

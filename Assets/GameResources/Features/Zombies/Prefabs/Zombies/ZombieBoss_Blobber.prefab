@@ -1854,6 +1854,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 150
   delay: 5
+  rewardCurrency: 10
 --- !u!114 &8831973074751218949
 MonoBehaviour:
   m_ObjectHideFlags: 0

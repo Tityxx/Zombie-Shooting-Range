@@ -24,7 +24,7 @@ public class CurrencyView : MonoBehaviour
 
     private void OnEnable()
     {
-        OnValueChange(Currency.Value);
+        text.text = Currency.Value.ToString();
         Currency.onValueChange += OnValueChange;
     }
 

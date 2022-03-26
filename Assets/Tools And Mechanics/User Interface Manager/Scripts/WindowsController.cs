@@ -32,7 +32,7 @@ namespace ToolsAndMechanics.UserInterfaceManager
         {
             if (Instance != null)
             {
-                Destroy(gameObject);
+                Destroy(Instance.gameObject);
                 return;
             }
 

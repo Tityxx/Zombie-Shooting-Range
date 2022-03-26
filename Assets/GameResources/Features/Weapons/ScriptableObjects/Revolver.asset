@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: Revolver
   cost: 0
-  icon: {fileID: 0}
+  iconScale: 1
+  icon: {fileID: 21300000, guid: c611da2cf7210dd48b459a6a3234e4ef, type: 3}
   prefab: {fileID: 5796942531097768352, guid: efb4879c7ebab994bb2f2a823c62e532, type: 3}
   isAutomaticWeapon: 0
   maxBullets: 7

@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,7 +9,10 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "Game/Weapon Data", fileName = "New Weapon")]
 public class WeaponData : ScriptableObject
 {
+    public static Action onChooseWeapon = delegate { };
+
     public int Cost => cost;
+    public float IconScale => iconScale;
     public Sprite Icon => icon;
     public AbstractWeapon Prefab => prefab;
     public bool IsAutomaticWeapon => isAutomaticWeapon;
@@ -45,8 +49,12 @@ public class WeaponData : ScriptableObject
         }
         set
         {
-            PlayerPrefs.SetString(CHOOSEN_KEY, id);
-            PlayerPrefs.Save();
+            if (value)
+            {
+                PlayerPrefs.SetString(CHOOSEN_KEY, id);
+                PlayerPrefs.Save();
+                onChooseWeapon();
+            }
         }
     }
 
@@ -57,6 +65,8 @@ public class WeaponData : ScriptableObject
 
     [Space]
     [Header("Вью")]
+    [SerializeField]
+    private float iconScale = 1f;
     [SerializeField]
     private Sprite icon;
     [SerializeField]
@@ -75,4 +85,10 @@ public class WeaponData : ScriptableObject
 
     private const string HAVE_KEY = "WeaponData.Have {0} weapon";
     private const string CHOOSEN_KEY = "WeaponData.Choosen weapon";
+
+    [ContextMenu("Сбросить инфу о том, есть ли оружие")]
+    private void ResetHaveWeapon()
+    {
+        HaveWeapon = false;
+    }
 }
