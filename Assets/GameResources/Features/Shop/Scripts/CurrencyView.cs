@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
@@ -15,6 +16,8 @@ public class CurrencyView : MonoBehaviour
     [SerializeField]
     private float scaleOnChange = 1.2f;
 
+    private Tween tween;
+
     private TMP_Text text;
 
     private void Awake()
@@ -26,19 +29,38 @@ public class CurrencyView : MonoBehaviour
     {
         text.text = Currency.Value.ToString();
         Currency.onValueChange += OnValueChange;
+        Currency.onNotEnoughMoney += OnNotEnoughMoney;
     }
 
     private void OnDisable()
     {
         Currency.onValueChange -= OnValueChange;
+        Currency.onNotEnoughMoney -= OnNotEnoughMoney;
     }
 
     private void OnValueChange(int currency)
     {
         text.text = currency.ToString();
-        transform.DOScale(Vector3.one * scaleOnChange, durationOnChange / 2).SetEase(Ease.InOutBounce).OnComplete(() => 
-        { 
-            transform.DOScale(Vector3.one, durationOnChange / 2).SetEase(Ease.InOutBounce); 
+
+        if (tween != null && tween.IsPlaying()) return;
+
+        tween = transform.DOScale(Vector3.one * scaleOnChange, durationOnChange / 2).SetEase(Ease.InOutBounce).OnComplete(() => 
+        {
+            tween = transform.DOScale(Vector3.one, durationOnChange / 2).SetEase(Ease.InOutBounce); 
+        });
+    }
+
+    private void OnNotEnoughMoney()
+    {
+        text.color = Color.red;
+
+        if (tween != null && tween.IsPlaying()) return;
+
+        tween = transform.DOScale(Vector3.one * scaleOnChange, durationOnChange / 2).SetEase(Ease.InOutBounce).OnComplete(() =>
+        {
+            tween = transform.DOScale(Vector3.one, durationOnChange / 2).SetEase(Ease.InOutBounce).OnComplete(() => {
+                text.color = Color.white;
+            });
         });
     }
 }

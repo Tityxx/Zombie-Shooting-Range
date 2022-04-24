@@ -62,6 +62,10 @@ public class WeaponShopView : MonoBehaviour
             data.HaveWeapon = true;
             UpdateButtonsView();
         }
+        else
+        {
+            Currency.NotEnoughMoney();
+        }
     }
 
     private void ChooseWeapon()

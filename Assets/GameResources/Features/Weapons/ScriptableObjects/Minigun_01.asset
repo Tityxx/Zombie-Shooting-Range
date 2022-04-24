@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 102c4d58ba3c0ef41b41ec3d5886cf01, type: 3}
+  m_Name: Minigun_01
+  m_EditorClassIdentifier: 
+  id: Minigun_01
+  cost: 10000
+  iconScale: 1.6
+  icon: {fileID: 21300000, guid: 62b39e8e7cff6f1428380676228ec3f3, type: 3}
+  prefab: {fileID: 1692848596861145442, guid: cc4ac123c88f6904bb9779c804d1c23e, type: 3}
+  isAutomaticWeapon: 1
+  maxBullets: 100
+  damage: 10
+  delayBetweenShots: 0.075

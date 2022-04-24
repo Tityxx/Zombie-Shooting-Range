@@ -10,6 +10,7 @@ using UnityEngine;
 public static class Currency
 {
     public static event Action<int> onValueChange = delegate { };
+    public static event Action onNotEnoughMoney = delegate { };
 
     public static int Value
     {
@@ -26,6 +27,11 @@ public static class Currency
                 onValueChange(Value);
             }
         }
+    }
+
+    public static void NotEnoughMoney()
+    {
+        onNotEnoughMoney();
     }
 
     [MenuItem("Tools/Game/Currency/Add 1000")]
