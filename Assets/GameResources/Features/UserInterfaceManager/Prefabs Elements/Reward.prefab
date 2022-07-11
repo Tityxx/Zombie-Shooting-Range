@@ -88,6 +88,7 @@ GameObject:
   - component: {fileID: 8401862385157305363}
   - component: {fileID: 5857633342369827684}
   - component: {fileID: 482853189601297988}
+  - component: {fileID: 4895019831232145930}
   m_Layer: 5
   m_Name: Reward
   m_TagString: Untagged
@@ -197,7 +198,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5857633342369827684}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 4690809365511839976}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &4895019831232145930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4690809365511839976}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aad83c58053ab3499a7d1732176c285, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5337967306052154413
 GameObject:
   m_ObjectHideFlags: 0

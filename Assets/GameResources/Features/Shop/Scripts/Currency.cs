@@ -34,6 +34,9 @@ public static class Currency
         onNotEnoughMoney();
     }
 
+    private const string SAVE_KEY = "Currency value";
+
+#if UNITY_EDITOR
     [MenuItem("Tools/Game/Currency/Add 1000")]
     private static void AddMoney_1000()
     {
@@ -63,6 +66,5 @@ public static class Currency
     {
         Debug.Log($"Currency = {Value}");
     }
-
-    private const string SAVE_KEY = "Currency value";
+#endif
 }

@@ -1086,6 +1086,7 @@ GameObject:
   - component: {fileID: -8451347540923776153}
   - component: {fileID: 953340715203981802}
   - component: {fileID: -2201006726452791348}
+  - component: {fileID: 4899730839654557302}
   m_Layer: 5
   m_Name: Pause Window
   m_TagString: Untagged
@@ -1170,3 +1171,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   window: {fileID: 11400000, guid: 4288fc4fbc565a349baf203eb7f94357, type: 2}
   needClose: 1
+--- !u!114 &4899730839654557302
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970686184089980069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49889284ebdc3649b4629f81e9a3147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

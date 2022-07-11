@@ -142,7 +142,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u041D\u0410\u0417\u0410\u0414"
+  m_text: BACK
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1029,6 +1029,7 @@ GameObject:
   - component: {fileID: -8841235708626080640}
   - component: {fileID: -2201006726452791348}
   - component: {fileID: 2529556690989044499}
+  - component: {fileID: -7388043077386873612}
   m_Layer: 5
   m_Name: Shop Window
   m_TagString: Untagged
@@ -1101,6 +1102,18 @@ MonoBehaviour:
   parent: {fileID: 514343833313975614}
   container: {fileID: 11400000, guid: 8c8548c7c3cf0f3489767bbd3abb98f9, type: 2}
   prefab: {fileID: 369879272402846742, guid: dbd7aaf4961a787439e2e87d31998559, type: 3}
+--- !u!114 &-7388043077386873612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970686184089980069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49889284ebdc3649b4629f81e9a3147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9106464832842312700
 GameObject:
   m_ObjectHideFlags: 0

@@ -19,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9150815260407943840
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1619,6 +1619,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6529107159446214614}
   - component: {fileID: -8841235708626080640}
+  - component: {fileID: 4031742144142618249}
   m_Layer: 5
   m_Name: Menu Window
   m_TagString: Untagged
@@ -1665,6 +1666,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsFocus: 0
+--- !u!114 &4031742144142618249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8970686184089980069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d49889284ebdc3649b4629f81e9a3147, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &9126297354903177665
 GameObject:
   m_ObjectHideFlags: 0
